@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTURE Insights - Recruitment Tips</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --black: #222222;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--gold);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--navy-blue);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--white);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), 
+                        url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .breadcrumb ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .breadcrumb ul li {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb ul li:after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--black);
+        }
+        
+        .breadcrumb ul li:last-child:after {
+            content: '';
+        }
+        
+        .breadcrumb ul li a {
+            color: var(--navy-blue);
+        }
+        
+        .breadcrumb ul li a:hover {
+            color: var(--gold);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            padding: 40px 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            margin-right: 40px;
+        }
+        
+        .sidebar-widget {
+            background-color: var(--white);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .categories ul {
+            list-style: none;
+        }
+        
+        .categories ul li {
+            margin-bottom: 10px;
+        }
+        
+        .categories ul li a {
+            color: var(--black);
+            display: block;
+            padding: 8px 0;
+            transition: all 0.3s;
+        }
+        
+        .categories ul li a:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+        
+        .recent-posts .post {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-posts .post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-posts .post-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+        
+        .recent-posts .post-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .recent-posts .post-date {
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            flex: 1;
+        }
+        
+        .blog-post {
+            background-color: var(--white);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-post-header {
+            margin-bottom: 30px;
+        }
+        
+        .blog-post-title {
+            font-size: 32px;
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+        }
+        
+        .post-meta {
+            display: flex;
+            margin-bottom: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .post-meta span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-meta i {
+            margin-right: 5px;
+            color: var(--gold);
+        }
+        
+        .blog-post-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-post-content h2 {
+            color: var(--navy-blue);
+            margin: 30px 0 20px;
+            font-size: 24px;
+        }
+        
+        .blog-post-content h3 {
+            color: var(--navy-blue);
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+        
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-post-content ul, 
+        .blog-post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .tag {
+            background-color: var(--light-gray);
+            color: var(--navy-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links ul li a {
+            color: #bbb;
+            transition: all 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }  
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-post {
+                padding: 25px;
+            }
+            
+            .blog-post-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">SYNTURE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Recruitment Insights & Tips</h1>
+            <p>Expert advice and strategies to help you attract, hire, and retain top talent in today's competitive market.</p>
+            <a href="#" class="btn">Explore More Articles</a>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Insights</a></li>
+                <li><a href="#">Recruitment Tips</a></li>
+                <li>10 Strategies for Hiring Top Tech Talent</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget categories">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Recruitment Tips</a></li>
+                    <li><a href="#">HR Strategies</a></li>
+                    <li><a href="#">Talent Management</a></li>
+                    <li><a href="#">Workplace Culture</a></li>
+                    <li><a href="#">Leadership Development</a></li>
+                    <li><a href="#">Employee Engagement</a></li>
+                    <li><a href="#">Diversity & Inclusion</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget recent-posts">
+                <h3>Recent Posts</h3>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">Building a Strong Employer Brand</a>
+                        <div class="post-date">May 15, 2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">The Future of Remote Hiring</a>
+                        <div class="post-date">April 28, 2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">Interview Techniques That Work</a>
+                        <div class="post-date">April 10, 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest recruitment tips and insights delivered to your inbox.</p>
+                <form>
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Blog Content -->
+        <main class="blog-content">
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h1 class="blog-post-title">10 Proven Strategies for Hiring Top Tech Talent in 2025</h1>
+                    <div class="post-meta">
+                        <span><i>📅</i> June 15, 2025</span>
+                        <span><i>👤</i> Sarah Johnson</span>
+                        <span><i>⏱️</i> 8 min read</span>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tech recruitment" class="blog-post-img">
+
+                <div class="blog-post-content">
+                    <p>In today's competitive tech landscape, finding and hiring top talent has become more challenging than ever. With the rapid evolution of technology and the increasing demand for skilled professionals, companies need to adopt innovative strategies to attract the best candidates. Here are 10 proven strategies that can help your organization stand out and secure the tech talent you need.</p>
+
+                    <h2>1. Build a Strong Employer Brand</h2>
+                    <p>Your employer brand is how potential candidates perceive your company as a place to work. In the tech industry, where candidates often have multiple offers, a strong employer brand can be the deciding factor.</p>
+                    <ul>
+                        <li>Showcase your company culture on social media and your careers page</li>
+                        <li>Highlight employee success stories and career growth opportunities</li>
+                        <li>Encourage current employees to share their experiences on platforms like Glassdoor</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Pro Tip:</strong> Tech candidates often research companies extensively before applying. Make sure your online presence accurately reflects your workplace culture and values.</p>
+                    </div>
+
+                    <h2>2. Leverage Employee Referrals</h2>
+                    <p>Employee referrals remain one of the most effective ways to hire quality tech talent. Your current employees understand your company culture and technical needs, making them excellent judges of potential fits.</p>
+                    <ul>
+                        <li>Implement a structured referral program with attractive incentives</li>
+                        <li>Make it easy for employees to refer candidates through a simple process</li>
+                        <li>Recognize and reward employees who make successful referrals</li>
+                    </ul>
+
+                    <h2>3. Focus on Skills, Not Just Credentials</h2>
+                    <p>In the tech world, skills often matter more than formal education. Many talented developers and engineers are self-taught or have non-traditional backgrounds.</p>
+                    <ul>
+                        <li>Implement skills-based assessments in your hiring process</li>
+                        <li>Consider alternative credentials like coding bootcamps or online certifications</li>
+                        <li>Look for problem-solving ability and passion for technology</li>
+                    </ul>
+
+                    <h2>4. Optimize Your Job Descriptions</h2>
+                    <p>Generic job postings won't attract top tech talent. Your job descriptions should be compelling, specific, and free from unnecessary requirements that might discourage qualified candidates.</p>
+                    <ul>
+                        <li>Focus on impact and challenges rather than just responsibilities</li>
+                        <li>Be transparent about salary ranges (this can significantly increase applications)</li>
+                        <li>Avoid excessive requirements that create an unrealistic "perfect candidate"</li>
+                    </ul>
+
+                    <h2>5. Embrace Remote and Flexible Work</h2>
+                    <p>The pandemic has permanently changed expectations around work location. Top tech talent now expects flexibility, and companies that don't offer it will miss out on many qualified candidates.</p>
+                    <ul>
+                        <li>Consider offering remote or hybrid work options</li>
+                        <li>Highlight your flexible work policies in job postings</li>
+                        <li>Invest in tools and processes that support remote collaboration</li>
+                    </ul>
+
+                    <h2>6. Streamline Your Hiring Process</h2>
+                    <p>Lengthy hiring processes can cause you to lose top candidates to faster-moving competitors. The best tech talent is often off the market within 10 days.</p>
+                    <ul>
+                        <li>Aim to complete the hiring process within 2-3 weeks</li>
+                        <li>Limit the number of interview rounds</li>
+                        <li>Provide clear timelines and regular updates to candidates</li>
+                    </ul>
+
+                    <h2>7. Showcase Challenging Work</h2>
+                    <p>Top tech professionals are motivated by interesting challenges and the opportunity to work with cutting-edge technologies.</p>
+                    <ul>
+                        <li>Highlight exciting projects in your job descriptions</li>
+                        <li>Discuss technical challenges during interviews</li>
+                        <li>Show how their work will make an impact</li>
+                    </ul>
+
+                    <h2>8. Build Relationships with Tech Communities</h2>
+                    <p>Proactively engaging with tech communities can help you build a pipeline of potential

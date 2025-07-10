@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTURE Insights | Social Media Updates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --dark-gold: #b38f00;
+            --black: #222222;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --section-bg: #f5f7fa;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--navy-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-gold);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+        }
+
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--navy-blue);
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--navy-blue);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1611162616475-46592b32151a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Platform Updates Section */
+        .platform-updates {
+            background-color: var(--section-bg);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .platform-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .platform-header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .platform-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .platform-header h3 {
+            color: #fff;
+            font-size: 2rem;
+            margin-top:12px;
+        }
+
+        .platform-body {
+            padding: 25px;
+        }
+
+        .update-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .update-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--navy-blue);
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        /* Algorithm Changes Section */
+        .algorithm-changes {
+            background-color: var(--white);
+        }
+
+        .algorithm-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: var(--navy-blue);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .change-list {
+            list-style: none;
+        }
+
+        .change-list li {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .change-list li:before {
+            content: '•';
+            color: var(--gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Content Trends Section */
+        .content-trends {
+            background-color: var(--section-bg);
+        }
+
+        .trends-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .trend-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .trend-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .trend-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .trend-card:hover .trend-image img {
+            transform: scale(1.05);
+        }
+
+        .trend-content {
+            padding: 25px;
+        }
+
+        .trend-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background-color: var(--white);
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .case-card {
+            background-color: var(--section-bg);
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-logo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-results {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .newsletter .section-title {
+            color: var(--white);
+        }
+
+        .newsletter .section-title:after {
+            background-color: var(--gold);
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--white);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+        }
+
+        .footer-links h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--white);
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .platform-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .platform-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .algorithm-tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">SYNTURE</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Social Media Updates & Trends</h1>
+            <p>Stay ahead of the curve with the latest platform updates, algorithm changes, and content strategies that
+                matter for your business in 2025.</p>
+            <div class="hero-buttons">
+                <a href="#updates" class="btn">View Latest Updates</a>
+                <a href="#trends" class="btn btn-outline">Explore Trends</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Updates Section -->
+    <section id="updates" class="section platform-updates">
+        <div class="container">
+            <h2 class="section-title">Platform Updates</h2>
+            <p class="section-subtitle">Recent changes and feature releases across major social platforms</p>
+
+            <div class="platform-grid">
+                <!-- Facebook -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fa-brands fa-facebook"></i></div>
+                        <h3>Facebook</h3>
+                    </div>
+                    <div class="platform-body">
+                        <div class="update-item">
+                            <div class="update-date">June 15, 2025</div>
+                            <h4>New Creator Monetization Tools</h4>
+                            <p>Facebook introduced new in-stream ads and fan subscription options for creators, with
+                                lower eligibility thresholds.</p>
+                        </div>
+                        <div class="update-item">
+                            <div class="update-date">May 28, 2025</div>
+                            <h4>Algorithm Prioritizes Original Content</h4>
+                            <p>The platform now gives more weight to original content over repurposed material in the
+                                News Feed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <h3>Instagram</h3>
+                    </div>
+                    <div class="platform-body">
+                        <div class="update-item">
+                            <div class="update-date">June 10, 2025</div>
+                            <h4>Notes Feature Expansion</h4>
+                            <p>Instagram's Notes feature now allows 60-second voice notes and has expanded to more
+                                regions globally.</p>
+                        </div>
+                        <div class="update-item">
+                            <div class="update-date">May 20, 2025</div>
+                            <h4>Reels Remix for Photos</h4>
+                            <p>Users can now remix static images in Reels, opening new creative possibilities for
+                                brands.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <h3>LinkedIn</h3>
+                    </div>
+                    <div class="platform-body">
+                        <div class="update-item">
+                            <div class="update-date">June 5, 2025</div>
+                            <h4>Collaborative Articles</h4>
+                            <p>New AI-powered feature surfaces topics for community contributions, with top contributors
+                                earning badges.</p>
+                        </div>
+                        <div class="update-item">
+                            <div class="update-date">May 15, 2025</div>
+                            <h4>Video in Comments</h4>
+                            <p>Users can now post video responses to comments, increasing engagement opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Algorithm Changes Section -->
+    <section class="section algorithm-changes">
+        <div class="container">
+            <h2 class="section-title">Algorithm Changes</h2>
+            <p class="section-subtitle">Understanding how platform algorithms prioritize content in 2025</p>
+
+            <div class="algorithm-tabs">
+                <button class="tab-btn active" data-tab="facebook">Facebook</button>
+                <button class="tab-btn" data-tab="instagram">Instagram</button>
+                <button class="tab-btn" data-tab="linkedin">LinkedIn</button>
+                <button class="tab-btn" data-tab="tiktok">TikTok</button>
+            </div>
+
+            <div id="facebook" class="tab-content active">
+                <ul class="change-list">
+                    <li><strong>Meaningful Interactions:</strong> Posts that spark conversations between friends
+                        (comments and replies) get significantly more reach.</li>
+                    <li><strong>Video Watch Time:</strong> Videos that keep viewers watching past 1 minute receive a
+                        major boost in distribution.</li>
+                    <li><strong>Link Posts Penalized:</strong> External links in posts see reduced reach compared to
+                        native content.</li>
+                    <li><strong>Group Content Prioritized:</strong> Posts in active groups appear higher in members'
+                        feeds.</li>
+                </ul>
+            </div>
+
+            <div id="instagram" class="tab-content">
+                <ul class="change-list">
+                    <li><strong>Reels Dominance:</strong> The algorithm heavily favors Reels, especially those using
+                        trending audio and effects.</li>
+                    <li><strong>Original Content Boost:</strong> Unique content (not repurposed from other platforms)
+                        gets more distribution.</li>
+                    <li><strong>Engagement Speed:</strong> Posts that get quick likes/comments in the first 30 minutes
+                        perform better.</li>
+                    <li><strong>Carousel Preference:</strong> Multi-image posts now outperform single images in most
+                        cases.</li>
+                </ul>
+            </div>
+
+            <div id="linkedin" class="tab-content">
+                <ul class="change-list">
+                    <li><strong>Comment Engagement:</strong> Posts with thoughtful comments (not just reactions) get
+                        more visibility.</li>
+                    <li><strong>Long-form Content:</strong> Articles and detailed posts perform better than short
+                        updates.</li>
+                    <li><strong>Video Growth:</strong> Native videos see 5x more reach than external links to videos.
+                    </li>
+                    <li><strong>Industry Relevance:</strong> Content is increasingly shown to users in related
+                        industries.</li>
+                </ul>
+            </div>
+
+            <div id="tiktok" class="tab-content">
+                <ul class="change-list">
+                    <li><strong>Watch Completion:</strong> Videos with high completion rates (especially rewatching)
+                        rank higher.</li>
+                    <li><strong>New Creator Boost:</strong> The algorithm gives new accounts more visibility in their
+                        first 30 days.</li>
+                    <li><strong>Trend Participation:</strong> Using trending sounds/challenges increases
+                        discoverability.</li>
+                    <li><strong>Share Metric:</strong> Videos that get shared (especially in DMs) get prioritized.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Trends Section -->
+    <section id="trends" class="section content-trends">
+        <div class="container">
+            <h2 class="section-title">Content Trends</h2>
+            <p class="section-subtitle">What's working across platforms in Q3 2025</p>
+
+            <div class="trends-container">
+                <!-- Trend 1 -->
+                <div class="trend-card">
+                    <div class="trend-image">
+                        <img
+                            src="https://thumbs.dreamstime.com/b/modern-studio-shot-bright-spotlight-illuminating-camera-equipment-generated-ai-artificial-intelligence-280250209.jpg">
+                    </div>
+                    <div class="trend-content">
+                        <h3>Authentic Behind-the-Scenes</h3>
+                        <p>Raw, unpolished content showing real moments outperforms highly produced material as users
+                            crave authenticity from brands.</p>
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">+47%</div>
+                                <div>Engagement</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">3.2x</div>
+                                <div>Shares</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend 2 -->
+                <div class="trend-card">
+                    <div class="trend-image">
+                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Educational Content" alt="Social Commerce">
+                    </div>
+                    <div class="trend-content">
+                        <h3>Social Commerce Growth</h3>
+                        <p>In-app shopping features see 3x more adoption as platforms streamline the path from discovery
+                            to purchase.</p>
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">+210%</div>
+                                <div>Conversions</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">58%</div>
+                                <div>Mobile Sales</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend 3 -->
+                <div class="trend-card">
+                    <div class="trend-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                    </div>
+                    <div class="trend-content">
+                        <h3>Educational Content Surge</h3>
+                        <p>How-to guides, tutorials, and explainer content sees 72% more saves and longer watch times
+                            across platforms.</p>
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">+72%</div>
+                                <div>Saves</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">2.5x</div>
+                                <div>Watch Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section case-studies">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">Brands achieving exceptional results with these strategies</p>
+
+            <div class="case-grid">
+                <!-- Case 1 -->
+                <div class="case-card">
+                    <div class="case-logo">
+                        <span>👗</span>
+                    </div>
+                    <h3>Fashion Retailer</h3>
+                    <p>Increased Instagram engagement by 320% through consistent Reels posting and trend participation.
+                    </p>
+                    <div class="case-results">
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">320%</div>
+                                <div>Engagement</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4.7M</div>
+                                <div>Reach</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card">
+                    <div class="case-logo">
+                        <span>💻</span>
+                    </div>
+                    <h3>Tech Startup</h3>
+                    <p>Generated $250k in LinkedIn leads through thought leadership content and community building.</p>
+                    <div class="case-results">
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">$250K</div>
+                                <div>Revenue</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">1.2K</div>
+                                <div>Leads</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card">
+                    <div class="case-logo">
+                        <span>🍔</span>
+                    </div>
+                    <h3>Restaurant Chain</h3>
+                    <p>Drove 15% more foot traffic through TikTok challenges and user-generated content.</p>
+                    <div class="case-results">
+                        <div class="trend-stats">
+                            <div class="stat">
+                                <div class="stat-value">15%</div>
+                                <div>Traffic</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">2.4M</div>
+                                <div>Views</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter">
+        <div class="container">
+            <h2 class="section-title">Stay Updated</h2>
+            <p class="section-subtitle">Get the latest social media updates delivered to your inbox weekly</p>
+
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">SYNTURE</a>
+                    <p>Providing data-driven insights and innovative solutions for the modern digital landscape.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🎵</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Guides</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Social Media Strategy</a></li>
+                        <li><a href="#">Content Creation</a></li>
+                        <li><a href="#">Community Management</a></li>
+                        <li><a href="#">Analytics & Reporting</a></li>
+                        <li><a href="#">Advertising</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SYNTURE. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality without JavaScript library
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Remove active class from all buttons and content
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

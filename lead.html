@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTURE Insights | Lead Generation Tips & Updates</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Color Variables */
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --black: #222222;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gold: #b38f00;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--navy-blue);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--navy-blue);
+        }
+
+        .blog-excerpt {
+            color: var(--black);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--dark-gold);
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background-color: var(--navy-blue);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .featured-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-content {
+            flex: 1;
+            min-width: 300px;
+            color: var(--white);
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .featured-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .newsletter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+
+        .newsletter p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--gold);
+        }
+
+        .newsletter-form button {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--dark-gold);
+        }
+
+        /* Categories Section */
+        .categories {
+            margin-bottom: 4rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy-blue);
+        }
+
+        .category-count {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 0.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            .featured-container {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>SYNTURE</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Synture Insights</h2>
+            <p>Discover powerful lead generation strategies, marketing tips, and industry updates to grow your business.
+            </p>
+            <a href="#" class="cta-button">Explore Latest Articles</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Latest Articles -->
+        <section class="latest-articles">
+            <div class="section-title">
+                <h2>Latest Lead Generation Tips</h2>
+            </div>
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Lead Generation">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Lead Generation</span>
+                        <h3 class="blog-title">10 Proven Strategies to Boost Your Lead Conversion Rates</h3>
+                        <p class="blog-excerpt">Discover how to optimize your lead conversion funnel with these
+                            actionable strategies that have helped businesses increase conversions by up to 300%.</p>
+
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Content Marketing">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Content Marketing</span>
+                        <h3 class="blog-title">How to Create High-Converting Lead Magnets That Actually Work</h3>
+                        <p class="blog-excerpt">Learn the psychology behind effective lead magnets and how to create
+                            offers that your ideal customers can't resist.</p>
+
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Digital Marketing">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Digital Marketing</span>
+                        <h3 class="blog-title">The Complete Guide to LinkedIn Lead Generation in 2023</h3>
+                        <p class="blog-excerpt">Master LinkedIn's powerful tools to generate high-quality B2B leads with
+                            this step-by-step guide to LinkedIn marketing success.</p>
+
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Email Marketing">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Email Marketing</span>
+                        <h3 class="blog-title">Cold Email Templates That Get 60%+ Response Rates</h3>
+                        <p class="blog-excerpt">Access our proven cold email templates and learn the psychology behind
+                            why they work so well for generating qualified leads.</p>
+
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Analytics">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Analytics</span>
+                        <h3 class="blog-title">How to Track and Measure Your Lead Generation ROI</h3>
+                        <p class="blog-excerpt">Learn which metrics matter most and how to calculate the true return on
+                            investment from your lead generation efforts.</p>
+
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Automation">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Automation</span>
+                        <h3 class="blog-title">Automating Your Lead Nurturing Process: Tools and Strategies</h3>
+                        <p class="blog-excerpt">Discover how to set up automated lead nurturing sequences that convert
+                            prospects into customers without constant manual effort.</p>
+
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Section -->
+        <section class="featured-section">
+            <div class="featured-container">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Featured Content">
+                </div>
+                <div class="featured-content">
+                    <h2>Mastering Lead Generation in the Digital Age</h2>
+                    <p>In today's competitive landscape, traditional lead generation methods are no longer enough. Our
+                        comprehensive guide reveals the modern strategies that are delivering results for businesses
+                        across industries.</p>
+                    <p>Learn how to leverage AI-powered tools, social selling techniques, and account-based marketing
+                        approaches to fill your pipeline with high-quality leads.</p>
+                    <a href="#" class="cta-button">Download Free Guide</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <h3>Get Lead Generation Tips Delivered to Your Inbox</h3>
+            <p>Join our newsletter and receive weekly insights, strategies, and case studies to help you generate more
+                qualified leads and grow your business.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="section-title">
+                <h2>Explore by Category</h2>
+            </div>
+            <div class="category-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <div class="category-icon">📈</div>
+                    <h3 class="category-title">Lead Generation</h3>
+                    <p class="category-count">24 Articles</p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <div class="category-icon">✉️</div>
+                    <h3 class="category-title">Email Marketing</h3>
+                    <p class="category-count">18 Articles</p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <div class="category-icon">🔍</div>
+                    <h3 class="category-title">SEO Strategies</h3>
+                    <p class="category-count">15 Articles</p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <div class="category-icon">📱</div>
+                    <h3 class="category-title">Social Media</h3>
+                    <p class="category-count">22 Articles</p>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h3 class="category-title">Analytics</h3>
+                    <p class="category-count">12 Articles</p>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="category-card">
+                    <div class="category-icon">🤖</div>
+                    <h3 class="category-title">Marketing Automation</h3>
+                    <p class="category-count">17 Articles</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">SYNTURE</div>
+                <p>We help businesses transform their lead generation strategies through innovative approaches and
+                    data-driven insights.</p>
+                <div class="social-links">
+                    <a href="#">📱</a>
+                    <a href="#">💻</a>
+                    <a href="#">📘</a>
+                    <a href="#">🔗</a>
+                    <a href="#">📸</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Lead Generation</a></li>
+                    <li><a href="#">Content Marketing</a></li>
+                    <li><a href="#">Digital Strategy</a></li>
+                    <li><a href="#">Marketing Automation</a></li>
+                    <li><a href="#">Industry Trends</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i>📍</i> 123 Business Ave, Suite 500<br>New York, NY 10001
+                </div>
+                <div class="contact-info">
+                    <i>📞</i> (555) 123-4567
+                </div>
+                <div class="contact-info">
+                    <i>✉️</i> info@synture.com
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SYNTURE. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

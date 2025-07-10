@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTURE Insights - SEO Strategies</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --black: #222222;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--gold);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--navy-blue);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--white);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), 
+                        url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .breadcrumb ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .breadcrumb ul li {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb ul li:after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--black);
+        }
+        
+        .breadcrumb ul li:last-child:after {
+            content: '';
+        }
+        
+        .breadcrumb ul li a {
+            color: var(--navy-blue);
+        }
+        
+        .breadcrumb ul li a:hover {
+            color: var(--gold);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            padding: 40px 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            margin-right: 40px;
+        }
+        
+        .sidebar-widget {
+            background-color: var(--white);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .categories ul {
+            list-style: none;
+        }
+        
+        .categories ul li {
+            margin-bottom: 10px;
+        }
+        
+        .categories ul li a {
+            color: var(--black);
+            display: block;
+            padding: 8px 0;
+            transition: all 0.3s;
+        }
+        
+        .categories ul li a:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+        
+        .recent-posts .post {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-posts .post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-posts .post-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+        
+        .recent-posts .post-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .recent-posts .post-date {
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            flex: 1;
+        }
+        
+        .blog-post {
+            background-color: var(--white);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-post-header {
+            margin-bottom: 30px;
+        }
+        
+        .blog-post-title {
+            font-size: 32px;
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+        }
+        
+        .post-meta {
+            display: flex;
+            margin-bottom: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .post-meta span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-meta i {
+            margin-right: 5px;
+            color: var(--gold);
+        }
+        
+        .blog-post-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-post-content h2 {
+            color: var(--navy-blue);
+            margin: 30px 0 20px;
+            font-size: 24px;
+        }
+        
+        .blog-post-content h3 {
+            color: var(--navy-blue);
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+        
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-post-content ul, 
+        .blog-post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .tag {
+            background-color: var(--light-gray);
+            color: var(--navy-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+      
+    
+        
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links ul li a {
+            color: #bbb;
+            transition: all 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }  
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-post {
+                padding: 25px;
+            }
+            
+            .blog-post-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">SYNTURE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>SEO Strategies & Digital Marketing</h1>
+            <p>Cutting-edge techniques and insights to help your business dominate search results and connect with your audience.</p>
+            <a href="#" class="btn">Explore More Articles</a>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Insights</a></li>
+                <li><a href="#">SEO Strategies</a></li>
+                <li>Synture's Guide to Voice Search Optimization</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget categories">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">SEO Strategies</a></li>
+                    <li><a href="#">Content Marketing</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">PPC Advertising</a></li>
+                    <li><a href="#">Analytics & Data</a></li>
+                    <li><a href="#">Conversion Optimization</a></li>
+                    <li><a href="#">Emerging Technologies</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget recent-posts">
+                <h3>Recent Posts</h3>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">The Future of AI in SEO</a>
+                        <div class="post-date">May 22, 2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">Local SEO Strategies for 2025</a>
+                        <div class="post-date">May 10, 2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Post thumbnail" class="post-img">
+                    <div>
+                        <a href="#" class="post-title">Content Clusters for SEO Success</a>
+                        <div class="post-date">April 28, 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest SEO tips and digital marketing insights.</p>
+                <form>
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Blog Content -->
+        <main class="blog-content">
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h1 class="blog-post-title">Synture's Complete Guide to Voice Search Optimization in 2025</h1>
+                    <div class="post-meta">
+                        <span><i>📅</i> June 5, 2025</span>
+                        <span><i>👤</i> Michael Chen</span>
+                        <span><i>⏱️</i> 10 min read</span>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1601142634808-38923e7b9a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Voice search technology" class="blog-post-img">
+
+                <div class="blog-post-content">
+                    <p>With over 50% of all searches now conducted via voice, optimizing for voice search has become essential for any business looking to maintain visibility in search results. Voice search optimization requires a different approach than traditional SEO, focusing on natural language, question-based queries, and local intent. This guide will walk you through the key strategies to ensure your content is voice-search friendly.</p>
+
+                    <h2>Understanding Voice Search Behavior</h2>
+                    <p>Voice searches differ significantly from text-based searches in several key ways:</p>
+                    <ul>
+                        <li><strong>Conversational queries:</strong> People speak differently than they type, using complete sentences and natural language</li>
+                        <li><strong>Question-based:</strong> Voice searches often begin with who, what, when, where, why, or how</li>
+                        <li><strong>Local intent:</strong> "Near me" searches are extremely common with voice</li>
+                        <li><strong>Action-oriented:</strong> Many voice searches are looking for immediate answers or actions</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Key Stat:</strong> According to recent studies, 72% of voice search users say they perform searches this way because it's faster than typing. Optimizing for speed and immediate answers is crucial.</p>
+                    </div>
+
+                    <h2>1. Focus on Question-Based Keywords</h2>
+                    <p>Traditional keyword research needs to be adapted for voice search. Instead of focusing on short phrases, look for:</p>
+                    <ul>
+                        <li>Full questions people might ask ("what's the best Italian restaurant near me?")</li>
+                        <li>Long-tail conversational phrases ("how do I fix a leaky faucet")</li>
+                        <li>Natural language variations of your target keywords</li>
+                    </ul>
+                    <p>Tools like AnswerThePublic can help identify common questions related to your industry.</p>
+
+                    <h2>2. Optimize for Featured Snippets</h2>
+                    <p>Voice assistants often read answers directly from featured snippets (position zero in search results). To optimize for snippets:</p>
+                    <ul>
+                        <li>Structure content to directly answer common questions</li>
+                        <li>Use clear, concise paragraphs (40-60 words) for potential snippet answers</li>
+                        <li>Format content with headers that match question phrases</li>
+                        <li>Use bullet points and numbered lists where appropriate</li>
+                    </ul>
+
+                    <h2>3. Improve Local SEO</h2>
+                    <p>With the majority of voice searches having local intent, your local SEO strategy is more important than ever:</p>
+                    <ul>
+                        <li>Claim and optimize your Google My Business listing</li>
+                        <li>Ensure NAP (Name, Address, Phone) consistency across all directories</li>
+                        <li>Build local citations and backlinks</li>
+                        <li>Encourage and respond to customer reviews</li>
+                        <li>Create location-specific content</li>
+                    </ul>
+
+                    <h2>4. Optimize for Mobile and Page Speed</h2>
+                    <p>Since most voice searches happen on mobile devices, mobile optimization is critical:</p>
+                    <ul>
+                        <li>Implement responsive design</li>
+                        <li>Compress images and enable browser caching</li>
+                        <li>Minimize JavaScript and CSS</li>
+                        <li>Aim for page load times under 2 seconds</li>
+                        <li>Use Accelerated Mobile Pages (AMP) where appropriate</li>
+                    </ul>
+
+                    <h2>5. Create FAQ Pages</h2>
+                    <p>A dedicated FAQ page is perfect for voice search optimization:</p>
+                    <ul>
+                        <li>Organize by common questions your customers ask</li>
+                        <li>Provide clear, concise answers (voice assistants prefer short answers)</li>
+                        <li>Use schema markup to help search engines understand the Q&A format</li>
+                        <li>Include natural variations of questions</li>
+                    </ul>
+
+                    <h2>6. Implement Schema Markup</h2>
+                    <p>Schema markup helps search engines understand your content better, increasing chances of being selected as a voice search result:</p>
+                    <ul>
+                        <li>Use FAQ schema for question-and-answer content</li>
+                        <li>Implement LocalBusiness schema for brick-and-mortar locations</li>
+                        <li>Add Review schema to highlight positive customer feedback</li>
+                        <li>Use HowTo schema for instructional content</li>
+                    </ul>
+
+                    <h2>7. Focus on Natural Language Content</h2>
+                    <p>Voice search prioritizes content that sounds natural when read aloud:</p>
+                    <ul>
+                        <li>Write conversationally, as if answering a customer's question</li>
+                        <li>Avoid overly technical jargon unless your audience expects it</li>
+                        <li>Read your content aloud to test its flow</li>
+                        <li>Use contractions and informal language where appropriate</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Pro Tip:</strong> Analyze your customer service logs and call transcripts to identify exactly how people ask questions about your products or services. Use these real phrases in your content.</p>
+                    </div>
+
+                    <h2>8. Secure Your Website with HTTPS</h2>
+                    <p>Security is a ranking factor, and voice assistants prioritize secure sites:</p>
+                    <ul>
+                        <li>Migrate your site to HTTPS if you haven't already</li>
+                        <li>Fix any mixed content issues</li>
+                        <li>Implement proper redirects from HTTP to HTTPS</li>
+                        <li>Update your sitemap and search console</li>
+                    </ul>
+
+                    <h2>9. Optimize for Long-Tail Keywords</h2>
+                    <p>Voice searches tend to be longer and more specific than text searches:</p>
+                    <ul>
+                        <li>Target 4-6 word phrases that match natural speech</li>
+                        <li>Create content around specific use cases and scenarios</li>
+                        <li>Include variations that account for regional speech differences</li>
+                        <li>Focus on intent rather than exact keyword matching</li>
+                    </ul>
+
+                    <h2>10. Track and Measure Performance</h2>
+                    <p>Monitor your voice search performance to refine your strategy:</p>
+                    <ul>
+                        <li>Set up tracking for question-based keywords</li>
+                        <li>Monitor featured snippet rankings</li>
+                        <li>Track "near me" searches and local rankings</li>
+                        <li>Analyze voice search traffic in Google Analytics</li>
+                        <li>Use tools like SEMrush or Ahrefs to identify voice search opportunities</li>
+                    </ul>
+
+                    <p>Voice search optimization requires a shift in thinking from traditional SEO, but the rewards are substantial. By implementing these strategies, you'll be well-positioned to capture the growing voice search market and stay ahead of competitors who are slower to adapt.</p>
+
+                    <div class="tags">
+                        <a href="#" class="tag">SEO</a>
+                        <a href="#" class="tag">Voice Search</a>
+                        <a href="#" class="tag">Digital Marketing</a>
+                        <a href="#" class="tag">Search Trends</a>
+                        <a href="#" class="tag">Content Strategy</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Ahead in Digital Marketing</h2>
+            <p>Subscribe to our newsletter for the latest SEO trends, algorithm updates, and digital marketing strategies delivered straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>SYNTURE</h3>
+                    <p>SYNTURE is a leading digital marketing agency specializing in SEO, content strategy, and conversion optimization.</p>
+                    <div class="social-links">
+                        <a href="#"><i>📱</i></a>
+                        <a href="#"><i>📘</i></a>
+                        <a href="#"><i>🐦</i></a>
+                        <a href="#"><i>🔗</i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="#">SEO Consulting</a></li>
+                            <li><a href="#">Content Marketing</a></li>
+                            <li><a href="#">PPC Management</a></li>
+                            <li><a href="#">Social Media Marketing</a></li>
+                            <li><a href="#">Conversion Optimization</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>123 Digital Lane<br>San Francisco, CA 94107</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@synture.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SYNTURE Digital Marketing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

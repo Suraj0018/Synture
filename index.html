@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synture Insights | Recruitment Tips, Hiring Trends & Marketing Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --black: #121212;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --dark-gold: #b38b2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
+                url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            padding: 25px;
+        }
+
+        .category-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--navy-blue);
+        }
+
+        .category-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--dark-gold);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Articles */
+        .featured {
+            padding: 80px 0;
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .featured .section-title h2 {
+            color: var(--white);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: var(--black);
+        }
+
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-content .meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--navy-blue);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--gold);
+        }
+
+        .newsletter-form button {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 0 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--dark-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .footer-links h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">SYNTURE</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#featured">Featured</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Synture Expert Insights</h1>
+            <p>Discover the latest recruitment tips, hiring trends, and marketing strategies to elevate your business
+                with Synture's expertise.</p>
+            <a href="#categories" class="cta-button">Explore Insights</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expertise Areas</h2>
+            </div>
+            <div class="category-grid">
+                <!-- Recruitment Tips Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                            alt="Recruitment Tips">
+                    </div>
+                    <div class="category-content">
+                        <h3>Recruitment Tips</h3>
+                        <p>Learn Synture's proven strategies to attract and retain top talent in your industry with our
+                            expert recruitment advice.</p>
+                        <a href="recruitment.html" class="read-more">Read Articles <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hiring Trends Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Hiring Trends">
+                    </div>
+                    <div class="category-content">
+                        <h3>Hiring Trends</h3>
+                        <p>Stay ahead with Synture's analysis of the latest hiring trends and workforce analytics
+                            shaping employment.</p>
+                        <a href="hiring.html" class="read-more">Read Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Marketing Strategies Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Marketing Strategies">
+                    </div>
+                    <div class="category-content">
+                        <h3>Marketing Strategies</h3>
+                        <p>Discover Synture's innovative marketing approaches that drive engagement and conversions for
+                            your business.</p>
+                        <a href="marketing.html" class="read-more">Read Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Add these cards to your existing category-grid section -->
+
+                <!-- SEO Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_Are_the_Different_Types_of_SEO.jpg"
+                            alt="SEO Strategies">
+                    </div>
+                    <div class="category-content">
+                        <h3>SEO Strategies</h3>
+                        <p>Master Synture's proven SEO techniques to improve search rankings, drive organic traffic,
+                            and boost online visibility for your business.</p>
+                        <a href="seo.html" class="read-more">Read Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Social Media Updates Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.saymedia-content.com/.image/t_share/MTkzNDg1MTY1NTE3ODc0NDA0/amazing-social-media-management-tools-in.png"
+                            alt="Social Media Updates">
+                    </div>
+                    <div class="category-content">
+                        <h3>Social Media Updates</h3>
+                        <p>Stay ahead with Synture's analysis of the latest social media trends, algorithm changes, and
+                            engagement-boosting strategies.</p>
+                        <a href="social.html" class="read-more">Read Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Lead Generation Tips Card -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Lead Generation Tips">
+                    </div>
+                    <div class="category-content">
+                        <h3>Lead Generation Tips</h3>
+                        <p>Discover Synture's innovative approaches to attract high-quality leads and convert them into
+                            loyal customers.</p>
+                        <a href="lead.html" class="read-more">Read Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Articles</h2>
+            </div>
+            <div class="article-grid">
+                <!-- Article 1 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Article 1">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>Recruitment Tips</span>
+                            <span>June 15, 2025</span>
+                        </div>
+                        <h3>Synture's 5 Innovative Ways to Attract Top Talent</h3>
+                        <p>Discover Synture's unconventional but effective methods to stand out in the competitive job
+                            market.</p>
+                        <a href="innovative.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://indiaemployerforum.org/wp-content/uploads/2025/04/pune-job-market-2025.jpg"
+                            alt="Article 2">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>Hiring Trends</span>
+                            <span>May 28, 2025</span>
+                        </div>
+                        <h3>Synture Report: The Remote Work Revolution</h3>
+                        <p>Explore how Synture is helping companies adapt their hiring practices for the remote work
+                            era.</p>
+                        <a href="work_revolution.html" class="read-more">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://comboapp.com/_next/image?url=https:%2F%2Fapi.comboapp.com%2Fuploads%2FMarketing_59ac863ea4.jpg&w=640&q=75"
+                            alt="Article 3">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>Marketing Strategies</span>
+                            <span>May 10, 2025</span>
+                        </div>
+                        <h3>Synture's AI-Powered Marketing Strategies</h3>
+                        <p>Learn how Synture is leveraging artificial intelligence to transform content marketing.</p>
+                        <a href="marketing_strategies.html" class="read-more">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://www.gomage.com/wp/wp-content/uploads/2020/04/Search-Engine-Optimization-Techniques_-5-Basic-Strategies.png"
+                            alt="SEO Strategies">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>SEO Strategies</span>
+                            <span>April 22, 2025</span>
+                        </div>
+                        <h3>Synture's Guide to Voice Search Optimization</h3>
+                        <p>Learn how Synture is helping businesses adapt their SEO strategies for the growing voice
+                            search market.</p>
+                        <a href="seo_strategies.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Social Media Updates">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>Social Media Updates</span>
+                            <span>April 15, 2025</span>
+                        </div>
+                        <h3>Synture's Analysis of 2025 Algorithm Changes</h3>
+                        <p>Discover how Synture is helping brands navigate the latest social media platform algorithm
+                            updates.</p>
+                        <a href="social_media.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Lead Generation Tips">
+                    </div>
+                    <div class="article-content">
+                        <div class="meta">
+                            <span>Lead Generation Tips</span>
+                            <span>March 30, 2025</span>
+                        </div>
+                        <h3>Synture's High-Converting Lead Magnet Strategies</h3>
+                        <p>Explore Synture's innovative approaches to creating lead magnets that actually convert
+                            visitors.</p>
+                        <a href="lead_generation.html" class="read-more">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stay Updated with Synture</h2>
+            </div>
+            <p>Subscribe to our newsletter to receive Synture's latest insights directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">SYNTURE</a>
+                    <p>Providing expert insights on recruitment, hiring trends, and marketing strategies to help
+                        businesses thrive with Synture's innovative solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#featured">Featured</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="recruitment.html">Recruitment Tips</a></li>
+                        <li><a href="hiring.html">Hiring Trends</a></li>
+                        <li><a href="marketing_strategies.html">Marketing Strategies</a></li>
+                        <li><a href="seo.html">SEO Strategies</a></li>
+                        <li><a href="social.html">Social Media Updates</a></li>
+                        <li><a href="lead.html">Lead Generation Tips</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Contact Synture</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 456</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> insights@synture.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Synture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

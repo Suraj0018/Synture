@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTURE Insights | Hiring Trends</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Color Variables */
+        :root {
+            --navy-blue: #001f3f;
+            --gold: #D4AF37;
+            --black: #222222;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gold: #b38f00;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--gold);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--dark-gold);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy-blue);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Hiring Trends Section */
+        .hiring-trends {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .trends-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .trend-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--black);
+            opacity: 0.7;
+        }
+
+        /* Industry Analysis Section */
+        .industry-analysis {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .analysis-content {
+            padding-right: 40px;
+        }
+
+        .analysis-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Key Takeaways Section */
+        .key-takeaways {
+            padding: 80px 0;
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .takeaways-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .takeaways-list {
+            margin-top: 40px;
+        }
+
+        .takeaway-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .takeaway-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .takeaway-content h3 {
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--light-gray);
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--white);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--white);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analysis-content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .trends-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">SYNTURE</a>
+            <nav>
+                <ul>
+                   <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hiring Trends 2025</h1>
+            <p>Discover the latest insights and data-driven analysis on employment patterns, in-demand skills, and workforce strategies shaping the tech industry.</p>
+            <a href="#trends" class="btn">Explore Trends</a>
+        </div>
+    </section>
+
+    <!-- Hiring Trends Section -->
+    <section id="trends" class="hiring-trends">
+        <div class="container">
+            <h2 class="section-title">Current Hiring Landscape</h2>
+            <p>Our comprehensive analysis of the current job market reveals significant shifts in employer priorities and candidate expectations.</p>
+            
+            <div class="trends-container">
+                <!-- Trend Card 1 -->
+                <div class="trend-card">
+                    <div class="card-header">
+                        <h3>Remote Work Evolution</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>The hybrid work model has become the standard, with 78% of tech companies offering flexible work arrangements. However, fully remote opportunities have decreased by 15% compared to 2022.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-value">78%</div>
+                                <div class="stat-label">Hybrid Adoption</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">-15%</div>
+                                <div class="stat-label">Remote Decline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trend Card 2 -->
+                <div class="trend-card">
+                    <div class="card-header">
+                        <h3>Skills in Demand</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>AI/ML expertise tops the list with 42% growth in demand. Cloud computing and cybersecurity follow closely, while traditional programming skills see slower growth.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-value">42%</div>
+                                <div class="stat-label">AI/ML Growth</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">28%</div>
+                                <div class="stat-label">Cloud Demand</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trend Card 3 -->
+                <div class="trend-card">
+                    <div class="card-header">
+                        <h3>Diversity Focus</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Companies prioritizing DEI initiatives report 35% higher employee retention. Women in tech leadership roles increased by 8% year-over-year.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-value">35%</div>
+                                <div class="stat-label">Retention Boost</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">+8%</div>
+                                <div class="stat-label">Women Leaders</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Analysis Section -->
+    <section class="industry-analysis">
+        <div class="container">
+            <div class="analysis-grid">
+                <div class="analysis-content">
+                    <h2 class="section-title">Sector-Specific Trends</h2>
+                    <p>The tech hiring landscape varies significantly across different sectors. While traditional software companies are slowing hiring, emerging fields like clean tech and health tech are experiencing rapid growth.</p>
+                    <p>Fintech companies continue to lead in compensation packages, offering 12-15% above market average for specialized roles. Meanwhile, the gaming industry shows the highest turnover rate at 22% annually.</p>
+                    <a href="#" class="btn">Download Full Report</a>
+                </div>
+                <div class="analysis-image">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Industry Analysis">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Takeaways Section -->
+    <section class="key-takeaways">
+        <div class="container takeaways-container">
+            <h2 class="section-title">Key Takeaways</h2>
+            <p>Based on our analysis of over 500 companies and 10,000 job postings, here are the most significant findings:</p>
+            
+            <div class="takeaways-list">
+                <!-- Takeaway 1 -->
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">1</div>
+                    <div class="takeaway-content">
+                        <h3>Skills Over Degrees</h3>
+                        <p>67% of employers now prioritize demonstrable skills over formal education, a 22% increase from 2020. Certification programs have become 3x more valuable in the hiring process.</p>
+                    </div>
+                </div>
+                
+                <!-- Takeaway 2 -->
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">2</div>
+                    <div class="takeaway-content">
+                        <h3>Contract Work Rising</h3>
+                        <p>Contract tech roles grew by 28% as companies seek flexibility. The average contract duration decreased from 12 to 8 months, indicating faster project cycles.</p>
+                    </div>
+                </div>
+                
+                <!-- Takeaway 3 -->
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">3</div>
+                    <div class="takeaway-content">
+                        <h3>Global Talent Competition</h3>
+                        <p>Borderless hiring increased by 40%, creating intense competition for top talent. Companies in emerging markets offer competitive packages to retain local experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="section-title">Stay Ahead of the Curve</h2>
+            <p>Subscribe to our monthly hiring trends newsletter and receive exclusive insights, data visualizations, and strategic recommendations.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" style="padding: 12px 20px; width: 300px; max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px;">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">SYNTURE</a>
+                    <p>Providing data-driven insights and innovative solutions for the modern workforce.</p>
+                    <p>&copy; 2025 SYNTURE. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Insights</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i>📍</i> 123 Tech Park, Silicon Valley, CA</p>
+                    <p><i>📞</i> +1 (555) 123-4567</p>
+                    <p><i>✉️</i> info@synture.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Designed with ❤️ by SYNTURE Insights Team</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
